@@ -18,15 +18,12 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding-left: 3cm;
-            padding-right: 3cm;
-            padding-top: 40px;
-            padding-bottom: 40px;
+            padding: 20px;
         }
 
-        h1,
-        h2 {
+        h1, h2 {
             color: #0a3d62;
+            text-align: center;
         }
 
         h1 {
@@ -37,26 +34,30 @@
             font-size: 1.1em;
             margin-bottom: 1.5em;
             text-align: center;
-            /* 时间居中 */
         }
 
         .info {
             margin-bottom: 2em;
             text-align: center;
-            /* Venue 居中 */
+        }
+
+        .table-container {
+            overflow-x: auto;
+            margin: 0 auto 2em;
         }
 
         table {
-            width: 100%;
             border-collapse: collapse;
-            margin: 1.5em 0;
+            width: max-content;
+            min-width: 300px;
+            margin: 0 auto;
+            text-align: center;
         }
 
-        table th,
-        table td {
+        table th, table td {
             border: 1px solid #ccc;
             padding: 10px;
-            text-align: left;
+            text-align: center;
         }
 
         table th {
@@ -82,11 +83,8 @@
         .funding-logos {
             display: flex;
             justify-content: center;
-            /* 水平居中 */
             align-items: center;
-            /* 垂直对齐 */
             gap: 30px;
-            /* logo 之间的间距 */
         }
 
         .funding-logo {
@@ -105,6 +103,17 @@
         a:hover {
             text-decoration: underline;
         }
+
+        @media (max-width: 600px) {
+            table th, table td {
+                padding: 8px;
+                font-size: 14px;
+            }
+            .funding-logos {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
     </style>
 </head>
 
@@ -112,17 +121,13 @@
 
     <div class="container">
 
-        <h1 style="text-align: center;">Avatar Project</h1>
-        <h2 style="text-align: center;">Industrial Workshop (IW2026)</h2>
+        <h1>Avatar Project</h1>
+        <h2>Industrial Workshop (IW2026)</h2>
         <p style="text-align: center; margin-top: 10px;">
-            <a href="IW2026_Schedule.pdf" download>
-                Download the workshop programme (PDF)
-            </a>
+            <a href="IW2026_Schedule.pdf" download>Download the workshop programme (PDF)</a>
         </p>
 
-        <div class="subtitle">
-            Prague, January 14, 2026
-        </div>
+        <div class="subtitle">Prague, January 14, 2026</div>
 
         <div class="info">
             <strong>Venue:</strong><br />
@@ -131,133 +136,131 @@
         </div>
 
         <h2>Envisaged Schedule</h2>
-
-        <table>
-            <thead>
-                <tr>
-                    <th>Time</th>
-                    <th>Activity</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>08:30 – 09:00</td>
-                    <td>Registration &amp; Morning Coffee</td>
-                </tr>
-                <tr>
-                    <td>09:00 – 09:20</td>
-                    <td>Welcome, Technical Hints &amp; Introduction</td>
-                </tr>
-                <tr>
-                    <td>09:20 – 10:05</td>
-                    <td>Smart Sensing Skin &amp; Energy Harvesting</td>
-                </tr>
-                <tr>
-                    <td>10:05 – 10:35</td>
-                    <td>Standardized &amp; Secure Communication Interface</td>
-                </tr>
-                <tr>
-                    <td>10:35 – 11:00</td>
-                    <td>Coffee Break</td>
-                </tr>
-                <tr>
-                    <td>11:00 – 11:50</td>
-                    <td>Advanced Analytics for Remaining Useful Life Estimation</td>
-                </tr>
-                <tr>
-                    <td>11:50 – 12:50</td>
-                    <td>VZLÚ Tour</td>
-                </tr>
-                <tr>
-                    <td>12:50 – 13:50</td>
-                    <td>Lunch</td>
-                </tr>
-                <tr>
-                    <td>13:50 – 15:10</td>
-                    <td>Developing the Digital Twin Concept</td>
-                </tr>
-                <tr>
-                    <td>15:10 – 15:40</td>
-                    <td>Coffee Break</td>
-                </tr>
-                <tr>
-                    <td>15:40 – 16:00</td>
-                    <td>Demonstration of Instrumented Wing</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Activity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>08:30 – 09:00</td>
+                        <td>Registration &amp; Morning Coffee</td>
+                    </tr>
+                    <tr>
+                        <td>09:00 – 09:20</td>
+                        <td>Welcome, Technical Hints &amp; Introduction</td>
+                    </tr>
+                    <tr>
+                        <td>09:20 – 10:05</td>
+                        <td>Smart Sensing Skin &amp; Energy Harvesting</td>
+                    </tr>
+                    <tr>
+                        <td>10:05 – 10:35</td>
+                        <td>Standardized &amp; Secure Communication Interface</td>
+                    </tr>
+                    <tr>
+                        <td>10:35 – 11:00</td>
+                        <td>Coffee Break</td>
+                    </tr>
+                    <tr>
+                        <td>11:00 – 11:50</td>
+                        <td>Advanced Analytics for Remaining Useful Life Estimation</td>
+                    </tr>
+                    <tr>
+                        <td>11:50 – 12:50</td>
+                        <td>VZLÚ Tour</td>
+                    </tr>
+                    <tr>
+                        <td>12:50 – 13:50</td>
+                        <td>Lunch</td>
+                    </tr>
+                    <tr>
+                        <td>13:50 – 15:10</td>
+                        <td>Developing the Digital Twin Concept</td>
+                    </tr>
+                    <tr>
+                        <td>15:10 – 15:40</td>
+                        <td>Coffee Break</td>
+                    </tr>
+                    <tr>
+                        <td>15:40 – 16:00</td>
+                        <td>Demonstration of Instrumented Wing</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
         <h2>Contact Information</h2>
-
-        <table>
-            <thead>
-                <tr>
-                    <th>Organization</th>
-                    <th>Principal Investigator (PI)</th>
-                    <th>Address</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Evektor</td>
-                    <td>Jan Papuga</td>
-                    <td><a href="mailto:mvanco@evektor.cz">mvanco@evektor.cz</a></td>
-                </tr>
-                <tr>
-                    <td>
-                        Imperial College London<br>
-                        <a href="https://www.imperial.ac.uk/structural-integrity-health-monitoring/" target="_blank">
-                            Structural Integrity and Health Monitoring Group
-                        </a>
-                    </td>
-                    <td>Zahra Sharif Khodaei</td>
-                    <td>
-                        <a href="mailto:z.sharif-khodaei@imperial.ac.uk">z.sharif-khodaei@imperial.ac.uk</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Loughborough University</td>
-                    <td>Jingjing Jiang</td>
-                    <td><a href="mailto:j.jiang2@lboro.ac.uk">j.jiang2@lboro.ac.uk</a></td>
-                </tr>
-                <tr>
-                    <td>Danish Technological Institute</td>
-                    <td>Zachary J. Davis</td>
-                    <td><a href="mailto:zjd@teknologisk.dk">zjd@teknologisk.dk</a></td>
-                </tr>
-                <tr>
-                <tr>
-                    <td>NTT Data</td>
-                    <td>Katharina Hrom</td>
-                    <td><a href="mailto:katharina.hrom@global.ntt">katharina.hrom@global.ntt</a></td>
-                </tr>
-                <tr>
-                    <td>University of Luxembourg</td>
-                    <td>Jorge Querol</td>
-                    <td><a href="mailto:jorge.querol@uni.lu">jorge.querol@uni.lu</a></td>
-                </tr>
-                <tr>
-                    <td>Nordic Wing</td>
-                    <td>Markus Skovhus</td>
-                    <td><a href="mailto:mss@nordic-wing.com">mss@nordic-wing.com</a></td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Organization</th>
+                        <th>Principal Investigator (PI)</th>
+                        <th>Address</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Evektor</td>
+                        <td>Jan Papuga</td>
+                        <td><a href="mailto:mvanco@evektor.cz">mvanco@evektor.cz</a></td>
+                    </tr>
+                    <tr>
+                        <td>Danish Technological Institute</td>
+                        <td>Zachary J. Davis</td>
+                        <td><a href="mailto:zjd@teknologisk.dk">zjd@teknologisk.dk</a></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Imperial College London<br>
+                            <a href="https://www.imperial.ac.uk/structural-integrity-health-monitoring/" target="_blank">
+                                Structural Integrity and Health Monitoring Group
+                            </a>
+                        </td>
+                        <td>Zahra Sharif Khodaei</td>
+                        <td><a href="mailto:z.sharif-khodaei@imperial.ac.uk">z.sharif-khodaei@imperial.ac.uk</a></td>
+                    </tr>
+                    <tr>
+                        <td>Loughborough University</td>
+                        <td>Jingjing Jiang</td>
+                        <td><a href="mailto:j.jiang2@lboro.ac.uk">j.jiang2@lboro.ac.uk</a></td>
+                    </tr>
+                    <tr>
+                        <td>NTT Data</td>
+                        <td>Katharina Hrom</td>
+                        <td><a href="mailto:katharina.hrom@global.ntt">katharina.hrom@global.ntt</a></td>
+                    </tr>
+                    <tr>
+                        <td>University of Luxembourg</td>
+                        <td>Jorge Querol</td>
+                        <td><a href="mailto:jorge.querol@uni.lu">jorge.querol@uni.lu</a></td>
+                    </tr>
+                    <tr>
+                        <td>Nordic Wing</td>
+                        <td>Markus Skovhus</td>
+                        <td><a href="mailto:mss@nordic-wing.com">mss@nordic-wing.com</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
         <div class="footer">
             <section class="funding-section">
                 <div class="funding-title">Funded By</div>
                 <div class="funding-logos">
                     <a href="https://cordis.europa.eu/project/id/101056737" target="_blank">
-                        <img src="https://raw.githubusercontent.com/sadjad-naderi/AVATAR-Workshop-Assets/main/EU_flag_Horizon_Europe.jpg"
-                            alt="European Union - Horizon Europe" class="funding-logo" style="max-height: 50px;">
+                        <img src="https://raw.githubusercontent.com/sadjad-naderi/AVATAR-Workshop-Assets/main/EU_flag_Horizon_Europe.jpg" alt="European Union - Horizon Europe" class="funding-logo" style="max-height: 50px;">
                     </a>
                     <a href="https://www.ukri.org/" target="_blank">
-                        <img src="https://raw.githubusercontent.com/sadjad-naderi/AVATAR-Workshop-Assets/main/UKRI_Logo_RGB.png"
-                            alt="UK Research and Innovation" class="funding-logo" style="max-height: 45px;">
+                        <img src="https://raw.githubusercontent.com/sadjad-naderi/AVATAR-Workshop-Assets/main/UKRI_Logo_RGB.png" alt="UK Research and Innovation" class="funding-logo" style="max-height: 45px;">
                     </a>
                 </div>
             </section>
+
             <p>
                 Views and opinions expressed are those of the author(s) only and do not necessarily
                 reflect those of the European Union or CINEA. Neither the European Union nor the granting
@@ -268,16 +271,12 @@
                 <strong>Contact:</strong><br />
                 Marek Vančo<br />
                 Tel: +420 774 387 358<br />
-                Email:
-                <a href="mailto:mvanco@evektor.cz">mvanco@evektor.cz</a>
+                Email: <a href="mailto:mvanco@evektor.cz">mvanco@evektor.cz</a>
             </div>
         </div>
-
-
 
     </div>
 
 </body>
 
 </html>
-
