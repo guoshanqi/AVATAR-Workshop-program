@@ -252,15 +252,60 @@
         <p style="text-align: center; margin-top: 10px;">
             <a href="Brochure_AVATAR_Final.pdf" download>Download the workshop Brochure (PDF)</a>
         </p>
-        <div style="text-align: center; margin-bottom: 2em;">
-            <iframe 
-                src="Brochure_AVATAR_Final.pdf" 
-                width="100%" 
-                height="600px"
-                style="border: 1px solid #ccc;">
-                This browser does not support PDFs. Please <a href="Brochure_AVATAR_Final.pdf">download the PDF</a>.
-            </iframe>
+        <div class="pdf-container" style="width:100%; border:1px solid #ccc; text-align:center; overflow:auto;">
+            <canvas id="pdf-canvas" style="display:block; margin:0 auto;"></canvas>
         </div>
+        <div style="text-align:center; margin-top:10px;">
+            <button id="prev-page">Previous Page</button>
+            <span>Page: <span id="page-num"></span> / <span id="page-count"></span></span>
+            <button id="next-page">Next Page</button>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.9.179/pdf.min.js"></script>
+        <script>
+            const url = 'Brochure_AVATAR_Final.pdf';
+            let pdfDoc = null,
+                pageNum = 1,
+                canvas = document.getElementById('pdf-canvas'),
+                ctx = canvas.getContext('2d');
+
+            pdfjsLib.getDocument(url).promise.then(doc => {
+                pdfDoc = doc;
+                document.getElementById('page-count').textContent = pdfDoc.numPages;
+                renderPage(pageNum);
+            });
+
+            function renderPage(num) {
+                pdfDoc.getPage(num).then(page => {
+                    const viewport = page.getViewport({ scale: 1 });
+                    const containerWidth = canvas.parentElement.clientWidth;
+
+                    // 计算缩放比例，自适应宽度
+                    const scale = containerWidth / viewport.width;
+                    const scaledViewport = page.getViewport({ scale: scale });
+
+                    canvas.width = scaledViewport.width;
+                    canvas.height = scaledViewport.height;
+
+                    const renderContext = { canvasContext: ctx, viewport: scaledViewport };
+                    page.render(renderContext);
+
+                    document.getElementById('page-num').textContent = num;
+                });
+            }
+
+            // 翻页按钮
+            document.getElementById('prev-page').addEventListener('click', () => {
+                if (pageNum <= 1) return;
+                pageNum--;
+                renderPage(pageNum);
+            });
+            document.getElementById('next-page').addEventListener('click', () => {
+                if (pageNum >= pdfDoc.numPages) return;
+                pageNum++;
+                renderPage(pageNum);
+            });
+        </script>
 
         <div class="footer">
             <section class="funding-section">
@@ -294,5 +339,6 @@
 </body>
 
 </html>
+
 
 
